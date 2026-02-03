@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cats at Home — Cat Sitting in Droitwich, Kidderminster & Worcester</title>
+<meta name="description" content="Professional cat sitting across Worcestershire. Your cat stays happy and comfortable in their own home while you're away.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --g:#3a8c2e;--gd:#2d6e23;--gl:#e8f5e4;
+  --cr:#faf6f0;--crd:#f0e8da;
+  --br:#4a3728;--brl:#6b5344;--brm:#8a7565;
+  --tx:#2c1e12;--txm:#7a6b5d;
+  --r:16px;--rl:24px;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--tx);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;user-select:none;-webkit-user-select:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;transition:background .3s,box-shadow .3s}
+nav.scrolled{background:rgba(250,246,240,.92);backdrop-filter:blur(16px);box-shadow:0 1px 20px rgba(74,55,40,.08)}
+.nav-in{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{font-family:'Fraunces',serif;font-weight:800;font-size:1.3rem;color:var(--gd);text-decoration:none}
+.nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--brl);font-weight:500;font-size:.9rem;transition:color .3s}
+.nav-links a:hover{color:var(--gd)}
+.nav-cta{background:var(--g)!important;color:#fff!important;padding:.55rem 1.3rem;border-radius:50px;font-weight:600!important;box-shadow:0 2px 12px rgba(58,140,46,.25);transition:all .3s!important}
+.nav-cta:hover{background:var(--gd)!important;transform:translateY(-1px)}
+.ham{display:none;background:0;border:0;cursor:pointer;padding:.5rem}
+.ham span{display:block;width:22px;height:2px;background:var(--br);margin:5px 0;border-radius:2px;transition:.3s}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,var(--cr),var(--crd),#e6ddd0);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(58,140,46,.06),transparent 70%);border-radius:50%}
+.hero-in{max-width:1100px;margin:0 auto;padding:7rem 2rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--gl);color:var(--gd);padding:.45rem 1rem;border-radius:50px;font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.3rem}
+.hero-badge .dot{width:6px;height:6px;background:var(--g);border-radius:50%;animation:pulse 2s infinite}
+h1{font-family:'Fraunces',serif;font-size:clamp(2.4rem,4.5vw,3.5rem);font-weight:700;line-height:1.12;color:var(--br);margin-bottom:1rem}
+h1 .ac{color:var(--g);font-style:italic}
+.hero-sub{font-size:1.05rem;color:var(--txm);margin-bottom:1.8rem;max-width:420px;line-height:1.8}
+.hero-acts{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2rem}
+.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.8rem 1.7rem;border-radius:50px;font-weight:600;font-size:.9rem;text-decoration:none;transition:all .3s;cursor:pointer;border:0;font-family:inherit}
+.btn-p{background:var(--g);color:#fff;box-shadow:0 4px 18px rgba(58,140,46,.3)}
+.btn-p:hover{background:var(--gd);transform:translateY(-2px);box-shadow:0 6px 24px rgba(58,140,46,.4)}
+.btn-s{background:0;color:var(--br);border:2px solid var(--crd)}
+.btn-s:hover{border-color:var(--g);color:var(--gd);background:var(--gl)}
+.hero-trust{display:flex;align-items:center;gap:.8rem;color:var(--txm);font-size:.85rem}
+.stars{color:#e8a838;letter-spacing:2px}
+.hero-img{position:relative}
+.hero-card{background:#fff;border-radius:var(--rl);padding:1.5rem;box-shadow:0 12px 50px rgba(74,55,40,.15);transform:rotate(1.5deg);transition:transform .4s;overflow:hidden;text-align:center}
+.hero-card:hover{transform:rotate(0)}
+.hero-card .hero-emoji{font-size:8rem;line-height:1;margin-bottom:1rem}
+.hero-card .card-title{font-family:'Fraunces',serif;font-weight:800;font-size:1.5rem;color:var(--br);margin-bottom:.15rem}
+.hero-card .card-sub{font-family:'Fraunces',serif;font-weight:600;font-size:.85rem;color:var(--txm);margin-bottom:.5rem}
+.hero-card .card-areas{font-size:.72rem;color:var(--txm);font-weight:600;letter-spacing:.03em}
+.hero-float{position:absolute;bottom:-14px;left:-20px;background:#fff;padding:.8rem 1.1rem;border-radius:var(--r);box-shadow:0 8px 30px rgba(74,55,40,.12);display:flex;align-items:center;gap:.7rem;animation:float 4s ease-in-out infinite}
+.hero-float .ic{width:40px;height:40px;background:var(--gl);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.hero-float .lb{font-size:.72rem;color:var(--txm)}
+.hero-float .vl{font-weight:700;color:var(--br);font-size:.88rem}
+
+/* SECTIONS */
+section{padding:5rem 2rem}
+.sec-in{max-width:1100px;margin:0 auto}
+.sec-lb{display:inline-flex;align-items:center;gap:.5rem;color:var(--g);font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.7rem}
+.sec-lb::before{content:'';width:18px;height:2px;background:var(--g);border-radius:2px}
+h2{font-family:'Fraunces',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;color:var(--br);line-height:1.2;margin-bottom:.8rem}
+.sec-sub{font-size:1rem;color:var(--txm);max-width:500px;line-height:1.8}
+
+/* SERVICES */
+.services{background:#fffcf7}
+.services-hd{text-align:center;margin-bottom:3rem}
+.services-hd .sec-sub{margin:0 auto}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.srv{background:#fff;border-radius:var(--r);padding:2rem;transition:all .35s;border:1px solid rgba(74,55,40,.05);position:relative;overflow:hidden}
+.srv::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--g);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.srv:hover{transform:translateY(-3px);box-shadow:0 8px 35px rgba(74,55,40,.1)}
+.srv:hover::before{transform:scaleX(1)}
+.srv-ic{width:50px;height:50px;background:var(--gl);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.1rem;transition:.3s}
+.srv:hover .srv-ic{background:var(--g)}
+.srv:hover .srv-ic span{filter:brightness(10)}
+.srv h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;color:var(--br);margin-bottom:.5rem}
+.srv p{color:var(--txm);font-size:.88rem;line-height:1.7}
+
+/* ABOUT */
+.abt-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.abt-img-main{background:linear-gradient(135deg,var(--gl),var(--crd));border-radius:var(--rl);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:4.5rem}
+.abt-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1.2rem}
+.abt-stat{background:#fff;border-radius:10px;padding:1rem;text-align:center;box-shadow:0 4px 20px rgba(74,55,40,.06)}
+.abt-stat .num{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;color:var(--g)}
+.abt-stat .lb{font-size:.72rem;color:var(--txm);margin-top:.15rem}
+.abt-content p{color:var(--txm);margin-bottom:1rem;line-height:1.8;font-size:.95rem}
+.abt-features{list-style:none;margin-top:1.3rem}
+.abt-features li{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:.7rem;font-size:.9rem;color:var(--brl)}
+.abt-features .ck{flex-shrink:0;width:20px;height:20px;background:var(--gl);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--g);margin-top:2px}
+
+/* AREAS */
+.areas{background:var(--br);color:#fff;position:relative;overflow:hidden}
+.areas::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(58,140,46,.1),transparent 50%),radial-gradient(circle at 20% 80%,rgba(58,140,46,.07),transparent 50%)}
+.areas .sec-in{position:relative;z-index:1}
+.areas-hd{text-align:center;margin-bottom:2.5rem}
+.areas h2{color:#fff}
+.areas .sec-sub{color:rgba(255,255,255,.6);margin:0 auto}
+.ar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;max-width:800px;margin:0 auto}
+.ar{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:1.8rem;text-align:center;transition:all .35s;backdrop-filter:blur(8px)}
+.ar:hover{background:rgba(255,255,255,.13);transform:translateY(-3px);border-color:var(--g)}
+.ar .pin{font-size:1.8rem;margin-bottom:.6rem;display:block}
+.ar h3{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;margin-bottom:.3rem}
+.ar p{color:rgba(255,255,255,.5);font-size:.82rem}
+
+/* TESTIMONIALS */
+.test{background:#fffcf7}
+.test-hd{text-align:center;margin-bottom:2.5rem}
+.test-hd .sec-sub{margin:0 auto}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.tcard{background:#fff;border-radius:var(--r);padding:1.8rem;box-shadow:0 4px 20px rgba(74,55,40,.06);transition:all .3s;border:1px solid rgba(74,55,40,.04)}
+.tcard:hover{box-shadow:0 8px 35px rgba(74,55,40,.1);transform:translateY(-2px)}
+.tcard .stars{margin-bottom:.8rem;font-size:.85rem}
+.tcard blockquote{font-style:italic;color:var(--brl);line-height:1.75;margin-bottom:1rem;font-size:.9rem}
+.tcard-author{display:flex;align-items:center;gap:.7rem}
+.tcard-av{width:36px;height:36px;background:var(--gl);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;color:var(--gd)}
+.tcard-name{font-weight:600;font-size:.85rem;color:var(--br)}
+.tcard-loc{font-size:.75rem;color:var(--txm)}
+
+/* CTA */
+.cta-sec{background:var(--cr);text-align:center}
+.cta-card{background:linear-gradient(135deg,var(--g),var(--gd));border-radius:var(--rl);padding:3.5rem 2.5rem;color:#fff;position:relative;overflow:hidden}
+.cta-card::before{content:'';position:absolute;top:-70px;right:-70px;width:260px;height:260px;background:rgba(255,255,255,.05);border-radius:50%}
+.cta-card h2{color:#fff;position:relative;z-index:1}
+.cta-card>p{color:rgba(255,255,255,.82);font-size:1.02rem;max-width:460px;margin:0 auto 1.8rem;position:relative;z-index:1}
+.cta-acts{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;position:relative;z-index:1}
+.btn-w{background:#fff;color:var(--gd);box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.btn-w:hover{background:var(--cr);transform:translateY(-2px)}
+.cta-ph{margin-top:1.2rem;font-size:.9rem;color:rgba(255,255,255,.65);position:relative;z-index:1}
+.cta-ph a{color:#fff;text-decoration:none;font-weight:600}
+
+/* FOOTER */
+footer{background:var(--br);color:rgba(255,255,255,.55);padding:2.5rem 2rem 1.5rem}
+.ft-in{max-width:1100px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.ft-brand .logo{font-family:'Fraunces',serif;font-weight:800;font-size:1.2rem;color:#fff;margin-bottom:.6rem}
+.ft-brand p{font-size:.82rem;line-height:1.7;max-width:260px}
+.ft-col h4{color:#fff;font-family:'Fraunces',serif;font-weight:600;font-size:.9rem;margin-bottom:.8rem}
+.ft-col ul{list-style:none}
+.ft-col li{margin-bottom:.4rem}
+.ft-col a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.82rem;transition:color .3s}
+.ft-col a:hover{color:var(--g)}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;padding-top:1.2rem;font-size:.78rem}
+
+/* ANIMATIONS */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.fi{opacity:0;transform:translateY(20px);transition:all .6s ease}
+.fi.vis{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-in{grid-template-columns:1fr;text-align:center;gap:2rem}
+  .hero-sub{margin:0 auto 1.8rem}
+  .hero-acts{justify-content:center}
+  .hero-trust{justify-content:center}
+  .hero-img{max-width:340px;margin:0 auto}
+  .srv-grid,.test-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}
+  .abt-grid{grid-template-columns:1fr;gap:2rem}
+  .ar-grid{grid-template-columns:1fr;max-width:340px}
+  .ft-top{grid-template-columns:1fr 1fr;gap:1.5rem}
+  .ft-bot{flex-direction:column;gap:.4rem;text-align:center}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .ham{display:block}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--cr);padding:1.2rem 2rem;box-shadow:0 10px 30px rgba(0,0,0,.08);gap:.8rem}
+  section{padding:3.5rem 1.5rem}
+  .cta-card{padding:2.5rem 1.5rem}
+  .f-row{grid-template-columns:1fr}
+  .abt-stats{grid-template-columns:1fr 1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-in">
+    <a href="#" class="nav-logo">Cats at Home</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#areas">Areas</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="tel:+447779229627" class="nav-cta">Call Robin</a></li>
+    </ul>
+    <button class="ham" id="hamBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-in">
+    <div>
+      <div class="hero-badge"><span class="dot"></span> Professional Cat Sitting</div>
+      <h1>Your cat stays <span class="ac">home,</span><br>you enjoy your <span class="ac">holiday</span></h1>
+      <p class="hero-sub">Professional, caring cat sitting across Worcestershire. Your feline friends stay happy and comfortable in their own home while you're away.</p>
+      <div class="hero-acts">
+        <a href="tel:+447779229627" class="btn btn-p">Call Robin</a>
+        <a href="#services" class="btn btn-s">Our Services</a>
+      </div>
+      <div class="hero-trust"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Trusted by cat owners across Worcestershire</div>
+    </div>
+    <div class="hero-img">
+      <div class="hero-card">
+        <div class="hero-emoji">&#128049;</div>
+        <div class="card-title">Cats at Home</div>
+        <div class="card-sub">Professional Cat Sitting</div>
+        <div class="card-areas">Droitwich &bull; Kidderminster &bull; Worcester</div>
+      </div>
+      <div class="hero-float">
+        <div class="ic">&#128062;</div>
+        <div><div class="lb">Happy cats cared for</div><div class="vl">500+</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="sec-in">
+    <div class="services-hd fi">
+      <div class="sec-lb">What We Offer</div>
+      <h2>Services tailored to your cat's needs</h2>
+      <p class="sec-sub">Every cat is different. Robin provides personalised care to keep them content, safe, and purring while you're away.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv fi"><div class="srv-ic"><span>&#127968;</span></div><h3>Daily Home Visits</h3><p>One or two daily visits to feed, water, and spend quality time with your cats. Litter trays cleaned, curtains managed, and your home looked after.</p></div>
+      <div class="srv fi"><div class="srv-ic"><span>&#128138;</span></div><h3>Medication &amp; Special Care</h3><p>Experienced with tablets, liquids, and special dietary needs. Your cat's health requirements are in safe, capable hands.</p></div>
+      <div class="srv fi"><div class="srv-ic"><span>&#128247;</span></div><h3>Photo Updates</h3><p>Regular photo and text updates so you can see your cat is happy, healthy, and well looked after. Holiday peace of mind guaranteed.</p></div>
+      <div class="srv fi"><div class="srv-ic"><span>&#128273;</span></div><h3>Key Holding &amp; Security</h3><p>Keys kept securely. Lights rotated, curtains managed, and post brought in to give your home a lived-in look.</p></div>
+      <div class="srv fi"><div class="srv-ic"><span>&#127807;</span></div><h3>Plant &amp; Garden Care</h3><p>Watering plants, light garden care, and small household tasks to keep everything in order while you're on holiday.</p></div>
+      <div class="srv fi"><div class="srv-ic"><span>&#128062;</span></div><h3>Free Meet &amp; Greet</h3><p>Before your holiday, Robin visits to meet your cats, learn their routines, and discuss their needs. Completely free, no obligation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="sec-in">
+    <div class="abt-grid">
+      <div class="fi">
+        <div class="abt-img-main">&#128049;</div>
+        <div class="abt-stats">
+          <div class="abt-stat"><div class="num">10+</div><div class="lb">Years Experience</div></div>
+          <div class="abt-stat"><div class="num">500+</div><div class="lb">Happy Cats</div></div>
+          <div class="abt-stat"><div class="num">100%</div><div class="lb">Insured</div></div>
+        </div>
+      </div>
+      <div class="abt-content fi">
+        <div class="sec-lb">About Robin</div>
+        <h2>A genuine love for cats</h2>
+        <p>Robin is a dedicated, experienced cat sitter who understands that your cat is family. With years of caring for cats of all breeds and temperaments, Robin provides a reliable, compassionate service you can trust.</p>
+        <p>Cats are happiest in their own environment — familiar sights, sounds, and smells. That's why Cats at Home brings the care to them. No stressful catteries, no unfamiliar surroundings.</p>
+        <ul class="abt-features">
+          <li><span class="ck">&#10003;</span> Fully insured and DBS checked</li>
+          <li><span class="ck">&#10003;</span> Experienced with nervous and elderly cats</li>
+          <li><span class="ck">&#10003;</span> Flexible visit times to suit your cat's routine</li>
+          <li><span class="ck">&#10003;</span> Emergency contact always available</li>
+          <li><span class="ck">&#10003;</span> References available on request</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="areas" id="areas">
+  <div class="sec-in">
+    <div class="areas-hd fi">
+      <div class="sec-lb" style="color:rgba(255,255,255,.45)">Areas We Cover</div>
+      <h2>Serving Worcestershire</h2>
+      <p class="sec-sub">Covering these areas and surrounding villages. Not sure if you're in range? Just give Robin a call.</p>
+    </div>
+    <div class="ar-grid">
+      <div class="ar fi"><span class="pin">&#128205;</span><h3>Droitwich</h3><p>Droitwich Spa &amp; surrounding villages</p></div>
+      <div class="ar fi"><span class="pin">&#128205;</span><h3>Kidderminster</h3><p>Kidderminster &amp; nearby areas</p></div>
+      <div class="ar fi"><span class="pin">&#128205;</span><h3>Worcester</h3><p>Worcester city &amp; surrounds</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="test" id="reviews">
+  <div class="sec-in">
+    <div class="test-hd fi">
+      <div class="sec-lb">Reviews</div>
+      <h2>What cat owners say</h2>
+      <p class="sec-sub">Happy cats, happy owners. Here's what people have to say about Robin's service.</p>
+    </div>
+    <div class="test-grid">
+      <div class="tcard fi">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"Robin is absolutely fantastic. Our two cats are always happy and content when we get home. The photo updates really put our minds at ease on holiday."</blockquote>
+        <div class="tcard-author"><div class="tcard-av">SH</div><div><div class="tcard-name">Sarah H.</div><div class="tcard-loc">Droitwich</div></div></div>
+      </div>
+      <div class="tcard fi">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"Our elderly cat Poppy needs medication twice daily. Robin handles it brilliantly — Poppy actually seems to look forward to the visits! Highly recommend."</blockquote>
+        <div class="tcard-author"><div class="tcard-av">JM</div><div><div class="tcard-name">James M.</div><div class="tcard-loc">Worcester</div></div></div>
+      </div>
+      <div class="tcard fi">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"We've used Robin for three years and wouldn't dream of going anywhere else. Reliable, caring, and our nervous cat Felix actually comes out to greet him!"</blockquote>
+        <div class="tcard-author"><div class="tcard-av">LP</div><div><div class="tcard-name">Lisa P.</div><div class="tcard-loc">Kidderminster</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="sec-in">
+    <div class="cta-card fi">
+      <h2>Going on holiday?<br>Your cat is in safe hands.</h2>
+      <p>Book a free meet and greet with Robin. He'll visit your home, meet your cats, and discuss everything they need.</p>
+      <div class="cta-acts">
+        <a href="tel:+447779229627" class="btn btn-w">Call Robin Now</a>
+      </div>
+      <div class="cta-ph">or call directly: <a href="tel:+447779229627">07779 229627</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-in">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <div class="logo">Cats at Home</div>
+        <p>Professional cat sitting across Droitwich, Kidderminster, and Worcester. Your cat stays home, happy, and cared for.</p>
+      </div>
+      <div class="ft-col"><h4>Services</h4><ul><li><a href="#services">Daily Visits</a></li><li><a href="#services">Medication Care</a></li><li><a href="#services">Photo Updates</a></li><li><a href="#services">Key Holding</a></li></ul></div>
+      <div class="ft-col"><h4>Areas</h4><ul><li><a href="#areas">Droitwich</a></li><li><a href="#areas">Kidderminster</a></li><li><a href="#areas">Worcester</a></li></ul></div>
+      <div class="ft-col"><h4>Contact</h4><ul><li><a href="tel:+447779229627">07779 229627</a></li></ul></div>
+    </div>
+    <div class="ft-bot"><span>&copy; 2026 Cats at Home. All rights reserved.</span><span>Cat sitting in Worcestershire</span></div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll effect
+var nav=document.getElementById('navbar');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>30)});
+
+// Mobile hamburger menu
+var hamBtn=document.getElementById('hamBtn'),navLinks=document.getElementById('navLinks');
+hamBtn.addEventListener('click',function(){navLinks.classList.toggle('open')});
+
+// Fade-in on scroll
+var fis=document.querySelectorAll('.fi');
+var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:0.15});
+fis.forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
